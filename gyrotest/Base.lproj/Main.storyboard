@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A304a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hm8-Au-57g">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="inR-EF-Ro3">
+            <objects>
+                <navigationController id="hm8-Au-57g" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HfF-iN-UKo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="g9q-kg-lIw" kind="relationship" relationship="rootViewController" id="zin-Wp-Yrw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUg-mK-ETV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-492" y="108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0Vw-PA-mdH">
+            <objects>
+                <viewController id="g9q-kg-lIw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ErD-ER-ZWw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kj6-7f-yxY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dHU-FI-a6x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbw-3x-xHg">
+                                <state key="normal" title="Tap me to enter gyro view"/>
+                                <connections>
+                                    <segue destination="lWS-mZ-qDa" kind="show" id="A5a-C4-XOI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fQ-ct-FTM">
+                                <string key="text">The first time you enter gyro view, the cube should smoothly track the device orientation.
+
+Now back out, and enter the gyro view again - this time, all rotations should appear  doubled. The vertical orientation corrects after a second or two thanks to the accelerometer.
+
+Each time you leave and reenter the view, the factor by which rotations are multiplied increases by one - 1x, 2x, 3x etc.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5fQ-ct-FTM" firstAttribute="leading" secondItem="dHU-FI-a6x" secondAttribute="leadingMargin" id="1dR-x1-frO"/>
+                            <constraint firstItem="5fQ-ct-FTM" firstAttribute="top" secondItem="Lbw-3x-xHg" secondAttribute="bottom" constant="8" id="CDd-qb-D00"/>
+                            <constraint firstItem="Lbw-3x-xHg" firstAttribute="centerX" secondItem="dHU-FI-a6x" secondAttribute="centerX" id="PwX-FJ-EF1"/>
+                            <constraint firstItem="Lbw-3x-xHg" firstAttribute="top" secondItem="ErD-ER-ZWw" secondAttribute="bottom" constant="8" id="SAc-Uq-Swc"/>
+                            <constraint firstItem="5fQ-ct-FTM" firstAttribute="trailing" secondItem="dHU-FI-a6x" secondAttribute="trailingMargin" id="f4l-7n-nu6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2pW-2t-HRm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgS-nr-EK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="106.59670164917542"/>
+        </scene>
+        <!--Gyro View Controller-->
+        <scene sceneID="3BV-ij-aTr">
+            <objects>
+                <viewController id="lWS-mZ-qDa" customClass="GyroViewController" customModule="gyrotest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3qI-VM-Pbo"/>
+                        <viewControllerLayoutGuide type="bottom" id="v27-o9-RSl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IVX-9T-LBG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" sceneName="GyroScene.scn" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65B-sd-dJo"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v27-o9-RSl" firstAttribute="top" secondItem="65B-sd-dJo" secondAttribute="bottom" id="8n8-uJ-GDs"/>
+                            <constraint firstItem="65B-sd-dJo" firstAttribute="leading" secondItem="IVX-9T-LBG" secondAttribute="leading" id="gGT-PF-n2q"/>
+                            <constraint firstAttribute="trailing" secondItem="65B-sd-dJo" secondAttribute="trailing" id="k1Q-TJ-U3w"/>
+                            <constraint firstItem="65B-sd-dJo" firstAttribute="top" secondItem="IVX-9T-LBG" secondAttribute="top" id="yUA-uN-zxE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="65B-sd-dJo" id="xNz-qm-mmb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Js5-mF-6Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.60000000000002" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+</document>
